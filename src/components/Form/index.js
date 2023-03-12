@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect, ErrorMessage, Field as FormikField} from "formik";
-import {FormText} from "reactstrap";
-import {FormGroup} from "reactstrap";
-import {CustomInputComponent} from "../CustomInputs";
+import {FormGroup, FormText} from "reactstrap";
+import {CustomCheckComponent, CustomInputComponent} from "../CustomInputs";
 
 const Field = (props) => {
     const {type, placeholder, formik, name} = props;
@@ -20,6 +19,15 @@ const Field = (props) => {
             as={CustomInputComponent}
         />
     )
+
+    if (type === "checkbox") {
+        fieldItem = (
+            <FormikField
+                {...props}
+                as={CustomCheckComponent}
+            />
+        )
+    }
 
     return (
         <FormGroup>

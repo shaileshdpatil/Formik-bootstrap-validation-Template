@@ -1,8 +1,20 @@
-import {Input} from "reactstrap";
+import {Input, Label} from "reactstrap";
 
 export const CustomInputComponent = (props) => {
-    console.log(props)
     return (
         <Input {...props} />
+    );
+}
+
+
+export const CustomCheckComponent = (props) => {
+    return (
+        <div className="d-block">
+            <Input {...props} id={props.name} />
+            {' '}
+            <Label check htmlFor={props.name}>
+                {props.label}
+            </Label>
+        </div>
     );
 }
